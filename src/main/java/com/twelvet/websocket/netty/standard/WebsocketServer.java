@@ -1,6 +1,6 @@
 package com.twelvet.websocket.netty.standard;
 
-import com.twelvet.websocket.netty.pojo.WebSocketEndpointServer;
+import com.twelvet.websocket.netty.domain.WebSocketEndpointServer;
 import com.twelvet.websocket.netty.standard.handler.HttpServerHandler;
 import com.twelvet.websocket.netty.util.SslUtils;
 import io.netty.bootstrap.ServerBootstrap;

@@ -1,4 +1,4 @@
-package com.twelvet.websocket.netty.pojo;
+package com.twelvet.websocket.netty.domain;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufAllocator;

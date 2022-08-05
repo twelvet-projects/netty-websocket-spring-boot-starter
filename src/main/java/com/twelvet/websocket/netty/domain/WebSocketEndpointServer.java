@@ -1,4 +1,4 @@
-package com.twelvet.websocket.netty.pojo;
+package com.twelvet.websocket.netty.domain;
 
 import com.twelvet.websocket.netty.support.impl.path.AntPathMatcherWrapper;
 import com.twelvet.websocket.netty.support.impl.path.DefaultPathMatcher;

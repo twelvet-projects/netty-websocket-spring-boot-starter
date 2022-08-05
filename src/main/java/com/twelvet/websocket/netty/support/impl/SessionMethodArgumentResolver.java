@@ -3,9 +3,9 @@ package com.twelvet.websocket.netty.support.impl;
 import com.twelvet.websocket.netty.support.MethodArgumentResolver;
 import io.netty.channel.Channel;
 import org.springframework.core.MethodParameter;
-import com.twelvet.websocket.netty.pojo.Session;
+import com.twelvet.websocket.netty.domain.Session;
 
-import static com.twelvet.websocket.netty.pojo.WebSocketEndpointServer.SESSION_KEY;
+import static com.twelvet.websocket.netty.domain.WebSocketEndpointServer.SESSION_KEY;
 
 public class SessionMethodArgumentResolver implements MethodArgumentResolver {
     @Override

@@ -4,7 +4,7 @@ import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.websocketx.*;
-import com.twelvet.websocket.netty.pojo.WebSocketEndpointServer;
+import com.twelvet.websocket.netty.domain.WebSocketEndpointServer;
 
 /**
  * @author twelvet

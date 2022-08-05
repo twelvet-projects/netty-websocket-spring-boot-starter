@@ -12,7 +12,7 @@ import com.twelvet.websocket.netty.annotation.BindRequestParam;
 import java.util.List;
 import java.util.Map;
 
-import static com.twelvet.websocket.netty.pojo.WebSocketEndpointServer.REQUEST_PARAM;
+import static com.twelvet.websocket.netty.domain.WebSocketEndpointServer.REQUEST_PARAM;
 
 public class RequestParamMethodArgumentResolver implements MethodArgumentResolver {
 

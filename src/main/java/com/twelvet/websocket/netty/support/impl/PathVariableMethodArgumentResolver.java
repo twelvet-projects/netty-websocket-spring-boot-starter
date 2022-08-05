@@ -9,7 +9,7 @@ import com.twelvet.websocket.netty.annotation.BindPathVariable;
 
 import java.util.Map;
 
-import static com.twelvet.websocket.netty.pojo.WebSocketEndpointServer.URI_TEMPLATE;
+import static com.twelvet.websocket.netty.domain.WebSocketEndpointServer.URI_TEMPLATE;
 
 public class PathVariableMethodArgumentResolver implements MethodArgumentResolver {
 

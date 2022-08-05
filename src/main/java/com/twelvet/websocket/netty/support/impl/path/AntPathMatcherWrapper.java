@@ -8,7 +8,7 @@ import org.springframework.util.AntPathMatcher;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import static com.twelvet.websocket.netty.pojo.WebSocketEndpointServer.URI_TEMPLATE;
+import static com.twelvet.websocket.netty.domain.WebSocketEndpointServer.URI_TEMPLATE;
 
 /**
  * @author twelvet

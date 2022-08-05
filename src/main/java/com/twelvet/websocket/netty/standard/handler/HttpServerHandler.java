@@ -20,7 +20,7 @@ import io.netty.util.internal.logging.InternalLogger;
 import io.netty.util.internal.logging.InternalLoggerFactory;
 import org.springframework.beans.TypeMismatchException;
 import org.springframework.util.ObjectUtils;
-import com.twelvet.websocket.netty.pojo.WebSocketEndpointServer;
+import com.twelvet.websocket.netty.domain.WebSocketEndpointServer;
 import com.twelvet.websocket.netty.support.WsPathMatcher;
 
 import java.io.InputStream;
