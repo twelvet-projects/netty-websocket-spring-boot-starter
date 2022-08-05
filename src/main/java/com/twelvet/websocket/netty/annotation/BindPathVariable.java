@@ -10,11 +10,11 @@ import java.lang.annotation.Target;
 /**
  * @author twelvet
  * @WebSite www.twelvet.cn
- * @Description: 获取路径参数
+ * @Description: 获取路径参数(与Spring @PathVariable同理)
  */
 @Target(ElementType.PARAMETER)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface PathVariable {
+public @interface BindPathVariable {
 
     /**
      * Alias for {@link #name}.

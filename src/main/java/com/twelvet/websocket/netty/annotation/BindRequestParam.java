@@ -10,11 +10,11 @@ import java.lang.annotation.Target;
 /**
  * @author twelvet
  * @WebSite www.twelvet.cn
- * @Description: 获取参数
+ * @Description: 获取参数(与Spring @RequestParam 同理)
  */
 @Target(ElementType.PARAMETER)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface RequestParam {
+public @interface BindRequestParam {
 
     /**
      * Alias for {@link #name}.

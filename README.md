@@ -10,7 +10,7 @@
 在Spring Boot中使用Netty来开发WebSocket服务器，并像spring-websocket注解一样简单且高性能
 
 ### 要求
-- jdk >= 1.8
+- jdk >= 1.8 (兼容jdk 17)
 
 ### 快速开始
 
@@ -31,11 +31,8 @@
 @WebSocketEndpoint(path = "/ws/{arg}")
 public class MyWebSocket {
 
-    /**
-     * 注意(RequestParam, PathVariable)为本组件提供
-     */
     @BeforeHandshake
-    public void handshake(Session session, HttpHeaders headers, @RequestParam String req, @RequestParam MultiValueMap reqMap, @PathVariable String arg, @PathVariable Map pathMap) {
+    public void handshake(Session session, HttpHeaders headers, @BindRequestParam String req, @BindRequestParam MultiValueMap reqMap, @BindPathVariable String arg, @BindPathVariable Map pathMap) {
         session.setSubprotocols("stomp");
         if (!"ok".equals(req)) {
             System.out.println("Authentication failed!");
@@ -44,7 +41,7 @@ public class MyWebSocket {
     }
 
     @OnOpen
-    public void onOpen(Session session, HttpHeaders headers, @RequestParam String req, @RequestParam MultiValueMap reqMap, @PathVariable String arg, @PathVariable Map pathMap) {
+    public void onOpen(Session session, HttpHeaders headers, @BindRequestParam String req, @BindRequestParam MultiValueMap reqMap, @BindPathVariable String arg, @BindPathVariable Map pathMap) {
         System.out.println("new connection");
         System.out.println(req);
     }

@@ -7,7 +7,7 @@ import io.netty.handler.codec.http.QueryStringDecoder;
 import org.springframework.beans.TypeConverter;
 import org.springframework.beans.factory.support.AbstractBeanFactory;
 import org.springframework.core.MethodParameter;
-import com.twelvet.websocket.netty.annotation.RequestParam;
+import com.twelvet.websocket.netty.annotation.BindRequestParam;
 
 import java.util.List;
 import java.util.Map;
@@ -24,12 +24,12 @@ public class RequestParamMethodArgumentResolver implements MethodArgumentResolve
 
     @Override
     public boolean supportsParameter(MethodParameter parameter) {
-        return parameter.hasParameterAnnotation(RequestParam.class);
+        return parameter.hasParameterAnnotation(BindRequestParam.class);
     }
 
     @Override
     public Object resolveArgument(MethodParameter parameter, Channel channel, Object object) throws Exception {
-        RequestParam ann = parameter.getParameterAnnotation(RequestParam.class);
+        BindRequestParam ann = parameter.getParameterAnnotation(BindRequestParam.class);
         assert ann != null;
         String name = ann.name();
         if (name.isEmpty()) {
