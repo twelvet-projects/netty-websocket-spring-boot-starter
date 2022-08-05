@@ -17,11 +17,11 @@
 - 添加依赖（暂未发布中央仓库，请自行mvn install后引入）:
 
 ```xml
-	<dependency>
-		<groupId>com.twelvet</groupId>
-		<artifactId>netty-websocket-spring-boot-starter</artifactId>
-		<version>1.0.0</version>
-	</dependency>
+<dependency>
+    <groupId>com.twelvet</groupId>
+    <artifactId>netty-websocket-spring-boot-starter</artifactId>
+    <version>1.0.0</version>
+</dependency>
 ```
 
 - 在端点类上加上`@WebSocketEndpoint`注解，并在相应的方法上加上`@BeforeHandshake`、`@OnOpen`、`@OnClose`、`@OnError`、`@OnMessage`、`@OnBinary`、`@OnEvent`注解，样例如下：
