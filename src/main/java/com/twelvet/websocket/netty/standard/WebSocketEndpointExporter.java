@@ -157,7 +157,7 @@ public class WebSocketEndpointExporter extends ApplicationObjectSupport
                 WebSocketEndpointServer webSocketEndpointServer = websocketServer.getEndpointServer();
                 StringJoiner stringJoiner = new StringJoiner(",");
                 webSocketEndpointServer.getPathMatcherSet().forEach(pathMatcher -> stringJoiner.add("'" + pathMatcher.getPattern() + "'"));
-                logger.info(String.format("[34mNetty WebSocket started on port: %s with context path(s): %s .[0m", webSocketEndpointServer.getPort(), stringJoiner));
+                logger.info(String.format("\033[34mNetty WebSocket started on port: %s with context path(s): %s .\033[0m", webSocketEndpointServer.getPort(), stringJoiner));
             } catch (InterruptedException e) {
                 logger.error(String.format("websocket [%s] init fail", entry.getKey()), e);
             } catch (SSLException e) {

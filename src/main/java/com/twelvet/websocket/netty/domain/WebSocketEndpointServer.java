@@ -51,12 +51,12 @@ public class WebSocketEndpointServer {
     }
 
     public boolean hasBeforeHandshake(Channel channel, String path) {
-        WebSocketMethodMapping methodMapping = getMethodMapping(path, channel);
+        WebSocketMethodMapping methodMapping = getWebSocketMethodMapping(path, channel);
         return methodMapping.getBeforeHandshake() != null;
     }
 
     public void doBeforeHandshake(Channel channel, FullHttpRequest req, String path) {
-        WebSocketMethodMapping methodMapping = getMethodMapping(path, channel);
+        WebSocketMethodMapping methodMapping = getWebSocketMethodMapping(path, channel);
 
         Object implement = null;
         try {
@@ -81,7 +81,7 @@ public class WebSocketEndpointServer {
     }
 
     public void doOnOpen(Channel channel, FullHttpRequest req, String path) {
-        WebSocketMethodMapping methodMapping = getMethodMapping(path, channel);
+        WebSocketMethodMapping methodMapping = getWebSocketMethodMapping(path, channel);
 
         Object implement = channel.attr(WEB_SOCKET_KEY).get();
         if (implement == null) {
@@ -136,8 +136,14 @@ public class WebSocketEndpointServer {
 
 
     public void doOnError(Channel channel, Throwable throwable) {
-        String attrPath = channel.attr(PATH_KEY).get();
-        WebSocketMethodMapping methodMapping = pathMethodMappingMap.get(attrPath);
+        Attribute<String> attrPath = channel.attr(PATH_KEY);
+        WebSocketMethodMapping methodMapping = null;
+        if (pathMethodMappingMap.size() == 1) {
+            methodMapping = pathMethodMappingMap.values().iterator().next();
+        } else {
+            String path = attrPath.get();
+            methodMapping = pathMethodMappingMap.get(path);
+        }
         if (methodMapping.getOnError() != null) {
             if (!channel.hasAttr(SESSION_KEY)) {
                 return;
@@ -154,13 +160,18 @@ public class WebSocketEndpointServer {
     }
 
     public void doOnMessage(Channel channel, WebSocketFrame frame) {
-        String attrPath = channel.attr(PATH_KEY).get();
-        WebSocketMethodMapping methodMapping = pathMethodMappingMap.get(attrPath);
+        Attribute<String> attrPath = channel.attr(PATH_KEY);
+        WebSocketMethodMapping methodMapping = null;
+        if (pathMethodMappingMap.size() == 1) {
+            methodMapping = pathMethodMappingMap.values().iterator().next();
+        } else {
+            String path = attrPath.get();
+            methodMapping = pathMethodMappingMap.get(path);
+        }
         if (methodMapping.getOnMessage() != null) {
             TextWebSocketFrame textFrame = (TextWebSocketFrame) frame;
             Object implement = channel.attr(WEB_SOCKET_KEY).get();
             try {
-                // Reflection call method execution
                 methodMapping.getOnMessage().invoke(implement, methodMapping.getOnMessageArgs(channel, textFrame));
             } catch (Throwable t) {
                 log.error(t);
@@ -169,8 +180,14 @@ public class WebSocketEndpointServer {
     }
 
     public void doOnBinary(Channel channel, WebSocketFrame frame) {
-        String attrPath = channel.attr(PATH_KEY).get();
-        WebSocketMethodMapping methodMapping = pathMethodMappingMap.get(attrPath);
+        Attribute<String> attrPath = channel.attr(PATH_KEY);
+        WebSocketMethodMapping methodMapping = null;
+        if (pathMethodMappingMap.size() == 1) {
+            methodMapping = pathMethodMappingMap.values().iterator().next();
+        } else {
+            String path = attrPath.get();
+            methodMapping = pathMethodMappingMap.get(path);
+        }
         if (methodMapping.getOnBinary() != null) {
             BinaryWebSocketFrame binaryWebSocketFrame = (BinaryWebSocketFrame) frame;
             Object implement = channel.attr(WEB_SOCKET_KEY).get();
@@ -183,8 +200,14 @@ public class WebSocketEndpointServer {
     }
 
     public void doOnEvent(Channel channel, Object evt) {
-        String attrPath = channel.attr(PATH_KEY).get();
-        WebSocketMethodMapping methodMapping = pathMethodMappingMap.get(attrPath);
+        Attribute<String> attrPath = channel.attr(PATH_KEY);
+        WebSocketMethodMapping methodMapping = null;
+        if (pathMethodMappingMap.size() == 1) {
+            methodMapping = pathMethodMappingMap.values().iterator().next();
+        } else {
+            String path = attrPath.get();
+            methodMapping = pathMethodMappingMap.get(path);
+        }
         if (methodMapping.getOnEvent() != null) {
             if (!channel.hasAttr(SESSION_KEY)) {
                 return;
@@ -221,7 +244,7 @@ public class WebSocketEndpointServer {
         pathMatchers.add(new DefaultPathMatcher(path));
     }
 
-    private WebSocketMethodMapping getMethodMapping(String path, Channel channel) {
+    private WebSocketMethodMapping getWebSocketMethodMapping(String path, Channel channel) {
         WebSocketMethodMapping methodMapping;
         if (pathMethodMappingMap.size() == 1) {
             methodMapping = pathMethodMappingMap.values().iterator().next();
