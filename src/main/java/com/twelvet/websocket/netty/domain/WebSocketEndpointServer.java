@@ -136,22 +136,15 @@ public class WebSocketEndpointServer {
 
 
     public void doOnError(Channel channel, Throwable throwable) {
-        Attribute<String> attrPath = channel.attr(PATH_KEY);
-        WebSocketMethodMapping methodMapping = null;
-        if (pathMethodMappingMap.size() == 1) {
-            methodMapping = pathMethodMappingMap.values().iterator().next();
-        } else {
-            String path = attrPath.get();
-            methodMapping = pathMethodMappingMap.get(path);
-        }
-        if (methodMapping.getOnError() != null) {
+        WebSocketMethodMapping webSocketMethodMapping = getWebSocketMethodMapping(channel);
+        if (webSocketMethodMapping.getOnError() != null) {
             if (!channel.hasAttr(SESSION_KEY)) {
                 return;
             }
             Object implement = channel.attr(WEB_SOCKET_KEY).get();
             try {
-                Method method = methodMapping.getOnError();
-                Object[] args = methodMapping.getOnErrorArgs(channel, throwable);
+                Method method = webSocketMethodMapping.getOnError();
+                Object[] args = webSocketMethodMapping.getOnErrorArgs(channel, throwable);
                 method.invoke(implement, args);
             } catch (Throwable t) {
                 log.error(t);
@@ -160,19 +153,12 @@ public class WebSocketEndpointServer {
     }
 
     public void doOnMessage(Channel channel, WebSocketFrame frame) {
-        Attribute<String> attrPath = channel.attr(PATH_KEY);
-        WebSocketMethodMapping methodMapping = null;
-        if (pathMethodMappingMap.size() == 1) {
-            methodMapping = pathMethodMappingMap.values().iterator().next();
-        } else {
-            String path = attrPath.get();
-            methodMapping = pathMethodMappingMap.get(path);
-        }
-        if (methodMapping.getOnMessage() != null) {
+        WebSocketMethodMapping webSocketMethodMapping = getWebSocketMethodMapping(channel);
+        if (webSocketMethodMapping.getOnMessage() != null) {
             TextWebSocketFrame textFrame = (TextWebSocketFrame) frame;
             Object implement = channel.attr(WEB_SOCKET_KEY).get();
             try {
-                methodMapping.getOnMessage().invoke(implement, methodMapping.getOnMessageArgs(channel, textFrame));
+                webSocketMethodMapping.getOnMessage().invoke(implement, webSocketMethodMapping.getOnMessageArgs(channel, textFrame));
             } catch (Throwable t) {
                 log.error(t);
             }
@@ -180,19 +166,12 @@ public class WebSocketEndpointServer {
     }
 
     public void doOnBinary(Channel channel, WebSocketFrame frame) {
-        Attribute<String> attrPath = channel.attr(PATH_KEY);
-        WebSocketMethodMapping methodMapping = null;
-        if (pathMethodMappingMap.size() == 1) {
-            methodMapping = pathMethodMappingMap.values().iterator().next();
-        } else {
-            String path = attrPath.get();
-            methodMapping = pathMethodMappingMap.get(path);
-        }
-        if (methodMapping.getOnBinary() != null) {
+        WebSocketMethodMapping webSocketMethodMapping = getWebSocketMethodMapping(channel);
+        if (webSocketMethodMapping.getOnBinary() != null) {
             BinaryWebSocketFrame binaryWebSocketFrame = (BinaryWebSocketFrame) frame;
             Object implement = channel.attr(WEB_SOCKET_KEY).get();
             try {
-                methodMapping.getOnBinary().invoke(implement, methodMapping.getOnBinaryArgs(channel, binaryWebSocketFrame));
+                webSocketMethodMapping.getOnBinary().invoke(implement, webSocketMethodMapping.getOnBinaryArgs(channel, binaryWebSocketFrame));
             } catch (Throwable t) {
                 log.error(t);
             }
@@ -200,21 +179,14 @@ public class WebSocketEndpointServer {
     }
 
     public void doOnEvent(Channel channel, Object evt) {
-        Attribute<String> attrPath = channel.attr(PATH_KEY);
-        WebSocketMethodMapping methodMapping = null;
-        if (pathMethodMappingMap.size() == 1) {
-            methodMapping = pathMethodMappingMap.values().iterator().next();
-        } else {
-            String path = attrPath.get();
-            methodMapping = pathMethodMappingMap.get(path);
-        }
-        if (methodMapping.getOnEvent() != null) {
+        WebSocketMethodMapping webSocketMethodMapping = getWebSocketMethodMapping(channel);
+        if (webSocketMethodMapping.getOnEvent() != null) {
             if (!channel.hasAttr(SESSION_KEY)) {
                 return;
             }
             Object implement = channel.attr(WEB_SOCKET_KEY).get();
             try {
-                methodMapping.getOnEvent().invoke(implement, methodMapping.getOnEventArgs(channel, evt));
+                webSocketMethodMapping.getOnEvent().invoke(implement, webSocketMethodMapping.getOnEventArgs(channel, evt));
             } catch (Throwable t) {
                 log.error(t);
             }
@@ -242,6 +214,16 @@ public class WebSocketEndpointServer {
             }
         }
         pathMatchers.add(new DefaultPathMatcher(path));
+    }
+
+    private WebSocketMethodMapping getWebSocketMethodMapping(Channel channel) {
+        Attribute<String> attrPath = channel.attr(PATH_KEY);
+        if (pathMethodMappingMap.size() == 1) {
+            return pathMethodMappingMap.values().iterator().next();
+        } else {
+            String path = attrPath.get();
+            return pathMethodMappingMap.get(path);
+        }
     }
 
     private WebSocketMethodMapping getWebSocketMethodMapping(String path, Channel channel) {
