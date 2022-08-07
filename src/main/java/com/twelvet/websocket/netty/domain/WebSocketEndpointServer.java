@@ -29,7 +29,7 @@ public class WebSocketEndpointServer {
 
     private static final AttributeKey<Object> WEB_SOCKET_KEY = AttributeKey.valueOf("WEBSOCKET_IMPLEMENT");
 
-    public static final AttributeKey<Session> SESSION_KEY = AttributeKey.valueOf("WEBSOCKET_SESSION");
+    public static final AttributeKey<NettySession> SESSION_KEY = AttributeKey.valueOf("WEBSOCKET_SESSION");
 
     private static final AttributeKey<String> PATH_KEY = AttributeKey.valueOf("WEBSOCKET_PATH");
 
@@ -66,8 +66,8 @@ public class WebSocketEndpointServer {
             return;
         }
         channel.attr(WEB_SOCKET_KEY).set(implement);
-        Session session = new Session(channel);
-        channel.attr(SESSION_KEY).set(session);
+        NettySession nettySession = new NettySession(channel);
+        channel.attr(SESSION_KEY).set(nettySession);
         Method beforeHandshake = methodMapping.getBeforeHandshake();
         if (beforeHandshake != null) {
             try {
@@ -92,8 +92,8 @@ public class WebSocketEndpointServer {
                 log.error(e);
                 return;
             }
-            Session session = new Session(channel);
-            channel.attr(SESSION_KEY).set(session);
+            NettySession nettySession = new NettySession(channel);
+            channel.attr(SESSION_KEY).set(nettySession);
         }
 
         Method onOpenMethod = methodMapping.getOnOpen();

@@ -25,6 +25,7 @@
 ```
 
 - 在端点类上加上`@WebSocketEndpoint`注解，并在相应的方法上加上`@BeforeHandshake`、`@OnOpen`、`@OnClose`、`@OnError`、`@OnMessage`、`@OnBinary`、`@OnEvent`注解，样例如下：
+- @PathVariable获取路径参数 @RequestParam获取query参数，二者皆与Spring的注解效果相同（注意：引入本框架实现的注解，不是Spring的）
 
 ```java
 
@@ -32,46 +33,46 @@
 public class MyWebSocket {
 
     @BeforeHandshake
-    public void handshake(Session session, HttpHeaders headers, @BindRequestParam String req, @BindRequestParam MultiValueMap reqMap, @BindPathVariable String arg, @BindPathVariable Map pathMap) {
-        session.setSubprotocols("stomp");
+    public void handshake(NettySession nettySession, HttpHeaders headers, @RequestParam String req, @RequestParam MultiValueMap reqMap, @PathVariable String arg, @PathVariable Map pathMap) {
+        nettySession.setSubprotocols("stomp");
         if (!"ok".equals(req)) {
             System.out.println("Authentication failed!");
-            session.close();
+            // nettySession.close();
         }
     }
 
     @OnOpen
-    public void onOpen(Session session, HttpHeaders headers, @BindRequestParam String req, @BindRequestParam MultiValueMap reqMap, @BindPathVariable String arg, @BindPathVariable Map pathMap) {
+    public void onOpen(NettySession nettySession, HttpHeaders headers, @RequestParam String req, @RequestParam MultiValueMap reqMap, @PathVariable String arg, @PathVariable Map pathMap) {
         System.out.println("new connection");
         System.out.println(req);
     }
 
     @OnClose
-    public void onClose(Session session) throws IOException {
+    public void onClose(NettySession nettySession) throws IOException {
         System.out.println("one connection closed");
     }
 
     @OnError
-    public void onError(Session session, Throwable throwable) {
+    public void onError(NettySession nettySession, Throwable throwable) {
         throwable.printStackTrace();
     }
 
     @OnMessage
-    public void onMessage(Session session, String message) {
+    public void onMessage(NettySession nettySession, String message) {
         System.out.println(message);
-        session.sendText("Hello Netty!");
+        nettySession.sendText("Hello Netty!");
     }
 
     @OnBinary
-    public void onBinary(Session session, byte[] bytes) {
+    public void onBinary(NettySession nettySession, byte[] bytes) {
         for (byte b : bytes) {
             System.out.println(b);
         }
-        session.sendBinary(bytes);
+        nettySession.sendBinary(bytes);
     }
 
     @OnEvent
-    public void onEvent(Session session, Object evt) {
+    public void onEvent(NettySession nettySession, Object evt) {
         if (evt instanceof IdleStateEvent) {
             IdleStateEvent idleStateEvent = (IdleStateEvent) evt;
             switch (idleStateEvent.state()) {

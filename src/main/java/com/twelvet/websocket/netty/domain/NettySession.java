@@ -16,11 +16,11 @@ import java.nio.ByteBuffer;
 /**
  * @author twelvet
  */
-public class Session {
+public class NettySession {
 
     private final Channel channel;
 
-    Session(Channel channel) {
+    NettySession(Channel channel) {
         this.channel = channel;
     }
 

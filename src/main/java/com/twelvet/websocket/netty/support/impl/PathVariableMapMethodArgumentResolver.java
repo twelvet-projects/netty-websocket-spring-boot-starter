@@ -5,7 +5,7 @@ import io.netty.channel.Channel;
 import org.springframework.core.MethodParameter;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
-import com.twelvet.websocket.netty.annotation.BindPathVariable;
+import com.twelvet.websocket.netty.annotation.PathVariable;
 
 import java.util.Collections;
 import java.util.Map;
@@ -15,14 +15,14 @@ import static com.twelvet.websocket.netty.domain.WebSocketEndpointServer.URI_TEM
 public class PathVariableMapMethodArgumentResolver implements MethodArgumentResolver {
     @Override
     public boolean supportsParameter(MethodParameter parameter) {
-        BindPathVariable ann = parameter.getParameterAnnotation(BindPathVariable.class);
+        PathVariable ann = parameter.getParameterAnnotation(PathVariable.class);
         return (ann != null && Map.class.isAssignableFrom(parameter.getParameterType()) &&
                 !StringUtils.hasText(ann.value()));
     }
 
     @Override
     public Object resolveArgument(MethodParameter parameter, Channel channel, Object object) throws Exception {
-        BindPathVariable ann = parameter.getParameterAnnotation(BindPathVariable.class);
+        PathVariable ann = parameter.getParameterAnnotation(PathVariable.class);
         String name = ann.name();
         if (name.isEmpty()) {
             name = parameter.getParameterName();

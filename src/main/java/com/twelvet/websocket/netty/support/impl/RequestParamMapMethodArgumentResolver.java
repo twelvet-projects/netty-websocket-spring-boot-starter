@@ -8,7 +8,7 @@ import org.springframework.core.MethodParameter;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.util.StringUtils;
-import com.twelvet.websocket.netty.annotation.BindRequestParam;
+import com.twelvet.websocket.netty.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Map;
@@ -19,14 +19,14 @@ public class RequestParamMapMethodArgumentResolver implements MethodArgumentReso
 
     @Override
     public boolean supportsParameter(MethodParameter parameter) {
-        BindRequestParam bindRequestParam = parameter.getParameterAnnotation(BindRequestParam.class);
-        return (bindRequestParam != null && Map.class.isAssignableFrom(parameter.getParameterType()) &&
-                !StringUtils.hasText(bindRequestParam.name()));
+        RequestParam requestParam = parameter.getParameterAnnotation(RequestParam.class);
+        return (requestParam != null && Map.class.isAssignableFrom(parameter.getParameterType()) &&
+                !StringUtils.hasText(requestParam.name()));
     }
 
     @Override
     public Object resolveArgument(MethodParameter parameter, Channel channel, Object object) throws Exception {
-        BindRequestParam ann = parameter.getParameterAnnotation(BindRequestParam.class);
+        RequestParam ann = parameter.getParameterAnnotation(RequestParam.class);
         String name = ann.name();
         if (name.isEmpty()) {
             name = parameter.getParameterName();
@@ -43,7 +43,7 @@ public class RequestParamMapMethodArgumentResolver implements MethodArgumentReso
         }
 
         Map<String, List<String>> requestParams = channel.attr(REQUEST_PARAM).get();
-        MultiValueMap multiValueMap = new LinkedMultiValueMap<>(requestParams);
+        MultiValueMap<String, String> multiValueMap = new LinkedMultiValueMap<>(requestParams);
         if (MultiValueMap.class.isAssignableFrom(parameter.getParameterType())) {
             return multiValueMap;
         } else {

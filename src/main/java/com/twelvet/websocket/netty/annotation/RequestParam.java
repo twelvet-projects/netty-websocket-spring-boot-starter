@@ -14,7 +14,7 @@ import java.lang.annotation.Target;
  */
 @Target(ElementType.PARAMETER)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface BindRequestParam {
+public @interface RequestParam {
 
     /**
      * Alias for {@link #name}.
