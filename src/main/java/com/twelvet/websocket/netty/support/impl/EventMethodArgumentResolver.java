@@ -9,7 +9,7 @@ import com.twelvet.websocket.netty.annotation.OnEvent;
 
 public class EventMethodArgumentResolver implements MethodArgumentResolver {
 
-    private AbstractBeanFactory beanFactory;
+    private final AbstractBeanFactory beanFactory;
 
     public EventMethodArgumentResolver(AbstractBeanFactory beanFactory) {
         this.beanFactory = beanFactory;
