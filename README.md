@@ -38,7 +38,7 @@ import org.springframework.util.MultiValueMap;
 import java.io.IOException;
 import java.util.Map;
 
-@WebSocketEndpoint(path = "/ws/{arg}")
+@WebSocketEndpoint(path = "/ws")
 public class MyWebSocket {
 
     @BeforeHandshake
