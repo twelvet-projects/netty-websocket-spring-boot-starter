@@ -29,6 +29,15 @@
 
 ```java
 
+import com.twelvet.websocket.netty.annotation.*;
+import com.twelvet.websocket.netty.domain.NettySession;
+import io.netty.handler.codec.http.HttpHeaders;
+import io.netty.handler.timeout.IdleStateEvent;
+import org.springframework.util.MultiValueMap;
+
+import java.io.IOException;
+import java.util.Map;
+
 @WebSocketEndpoint(path = "/ws/{arg}")
 public class MyWebSocket {
 
@@ -48,7 +57,7 @@ public class MyWebSocket {
     }
 
     @OnClose
-    public void onClose(NettySession nettySession) throws IOException {
+    public void onClose(NettySession nettySession) {
         System.out.println("one connection closed");
     }
 
