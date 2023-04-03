@@ -14,11 +14,11 @@
 
 ### 快速开始
 
-- 添加依赖（暂未发布中央仓库，请自行mvn install后引入）:
+- 添加依赖:
 
 ```xml
 <dependency>
-    <groupId>com.twelvet</groupId>
+    <groupId>cn.twelvet.websocket</groupId>
     <artifactId>netty-websocket-spring-boot-starter</artifactId>
     <version>1.0.0</version>
 </dependency>
@@ -29,13 +29,12 @@
 
 ```java
 
-import com.twelvet.websocket.netty.annotation.*;
-import com.twelvet.websocket.netty.domain.NettySession;
+import cn.twelvet.websocket.netty.annotation.*;
+import cn.twelvet.websocket.netty.domain.NettySession;
 import io.netty.handler.codec.http.HttpHeaders;
 import io.netty.handler.timeout.IdleStateEvent;
 import org.springframework.util.MultiValueMap;
 
-import java.io.IOException;
 import java.util.Map;
 
 @WebSocketEndpoint(path = "/ws")
