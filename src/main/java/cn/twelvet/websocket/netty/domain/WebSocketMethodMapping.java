@@ -25,8 +25,7 @@ import java.util.List;
 
 /**
  * @author twelvet
- * @WebSite www.twelvet.cn
- * @Description: 断点方法注入参数
+ * 断点方法注入参数
  */
 public class WebSocketMethodMapping {
 

@@ -12,8 +12,7 @@ import static cn.twelvet.websocket.netty.domain.WebSocketEndpointServer.URI_TEMP
 
 /**
  * @author twelvet
- * @WebSite www.twelvet.cn
- * @Description: Ant path matcher
+ * Ant path matcher
  */
 public class AntPathMatcherWrapper extends AntPathMatcher implements WsPathMatcher {
 

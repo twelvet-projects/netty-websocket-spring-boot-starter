@@ -8,8 +8,7 @@ import org.springframework.core.io.ResourceLoader;
 
 /**
  * @author twelvet
- * @WebSite www.twelvet.cn
- * @Description: 开启WebSocket
+ * 开启WebSocket
  */
 @ConditionalOnMissingBean({WebSocketEndpointExporter.class})
 @AutoConfiguration

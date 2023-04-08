@@ -5,8 +5,7 @@ import io.netty.handler.codec.http.QueryStringDecoder;
 
 /**
  * @author twelvet
- * @WebSite www.twelvet.cn
- * @Description: WebSocket path matcher
+ * WebSocket path matcher
  */
 public interface WsPathMatcher {
 

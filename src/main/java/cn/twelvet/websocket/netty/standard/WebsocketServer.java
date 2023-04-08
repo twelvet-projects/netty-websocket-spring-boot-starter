@@ -47,6 +47,9 @@ public class WebsocketServer {
 
     /**
      * Start Netty
+     *
+     * @throws InterruptedException InterruptedException
+     * @throws SSLException SSLException
      */
     public void init() throws InterruptedException, SSLException {
         EventExecutorGroup eventExecutorGroup = null;

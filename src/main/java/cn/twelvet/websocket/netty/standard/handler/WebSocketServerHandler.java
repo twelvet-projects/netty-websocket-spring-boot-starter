@@ -8,8 +8,7 @@ import cn.twelvet.websocket.netty.domain.WebSocketEndpointServer;
 
 /**
  * @author twelvet
- * @WebSite www.twelvet.cn
- * @Description: Handler WebSocketFrame
+ * Handler WebSocketFrame
  */
 public class WebSocketServerHandler extends SimpleChannelInboundHandler<WebSocketFrame> {
 

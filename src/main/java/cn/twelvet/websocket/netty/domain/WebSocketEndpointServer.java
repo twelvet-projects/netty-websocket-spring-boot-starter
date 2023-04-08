@@ -22,8 +22,7 @@ import java.util.*;
 
 /**
  * @author twelvet
- * @WebSite www.twelvet.cn
- * @Description: Event handling service
+ * Event handling service
  */
 public class WebSocketEndpointServer {
 

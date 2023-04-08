@@ -7,8 +7,7 @@ import java.lang.annotation.Target;
 
 /**
  * @author twelvet
- * @WebSite www.twelvet.cn
- * @Description: 当接收到Netty的事件时，对该方法进行回调 注入参数的类型:Session、Object
+ * 当接收到Netty的事件时，对该方法进行回调 注入参数的类型:Session、Object
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)

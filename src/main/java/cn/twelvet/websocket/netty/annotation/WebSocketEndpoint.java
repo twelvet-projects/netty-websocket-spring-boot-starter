@@ -9,8 +9,7 @@ import java.lang.annotation.Target;
 
 /**
  * @author twelvet
- * @WebSite www.twelvet.cn
- * @Description: 当WebSocketEndpointExporter类通过Spring配置进行声明并被使用
+ * 当WebSocketEndpointExporter类通过Spring配置进行声明并被使用
  * 它将会去扫描带有@WebSocketEndpoint注解的类 被注解的类将被注册成为一个WebSocket端点
  * 所有的配置项都在这个注解的属性中 ( 如:@WebSocketEndpoint("/ws") )
  */

@@ -10,8 +10,7 @@ import java.util.Set;
 
 /**
  * @author twelvet
- * @WebSite www.twelvet.cn
- * @Description: 根据路径扫描端点
+ * 根据路径扫描端点
  */
 public class EndpointClassPathScanner extends ClassPathBeanDefinitionScanner {
 
@@ -23,7 +22,7 @@ public class EndpointClassPathScanner extends ClassPathBeanDefinitionScanner {
      * add scan endpoint
      *
      * @param basePackages package
-     * @return Set<BeanDefinitionHolder>
+     * @return Set
      */
     @Override
     protected Set<BeanDefinitionHolder> doScan(String... basePackages) {

@@ -2,8 +2,7 @@ package cn.twelvet.websocket.netty.exception;
 
 /**
  * @author twelvet
- * @WebSite www.twelvet.cn
- * @Description: WebSocketException
+ * WebSocketException
  */
 public class WebSocketException extends Exception {
 

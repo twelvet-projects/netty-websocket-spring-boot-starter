@@ -9,8 +9,7 @@ import java.lang.annotation.Target;
 
 /**
  * @author twelvet
- * @WebSite www.twelvet.cn
- * @Description: 获取参数(与Spring @RequestParam 同理)
+ * 获取参数(与Spring @RequestParam 同理)
  */
 @Target(ElementType.PARAMETER)
 @Retention(RetentionPolicy.RUNTIME)
@@ -18,12 +17,16 @@ public @interface RequestParam {
 
     /**
      * Alias for {@link #name}.
+     *
+     * @return 所需参数
      */
     @AliasFor("name")
     String value() default "";
 
     /**
      * The name of the request parameter to bind to.
+     *
+     * @return 所需参数
      */
     @AliasFor("value")
     String name() default "";
@@ -36,6 +39,8 @@ public @interface RequestParam {
      * not present in the request.
      * <p>Alternatively, provide a {@link #defaultValue}, which implicitly
      * sets this flag to {@code false}.
+     *
+     * @return 是否必须的
      */
     boolean required() default true;
 
@@ -44,6 +49,8 @@ public @interface RequestParam {
      * not provided or has an empty value.
      * <p>Supplying a default value implicitly sets {@link #required} to
      * {@code false}.
+     *
+     * @return 默认信息
      */
     String defaultValue() default "\n\t\t\n\t\t\n\uE000\uE001\uE002\n\t\t\t\t\n";
 

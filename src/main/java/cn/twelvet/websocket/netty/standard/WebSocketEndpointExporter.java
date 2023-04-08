@@ -28,8 +28,7 @@ import java.util.*;
 
 /**
  * @author twelvet
- * @WebSite www.twelvet.cn
- * @Description: 扫描断点并注册
+ * 扫描断点并注册
  */
 public class WebSocketEndpointExporter extends ApplicationObjectSupport
         implements SmartInitializingSingleton,

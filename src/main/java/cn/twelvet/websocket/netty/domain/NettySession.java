@@ -26,10 +26,11 @@ public class NettySession {
 
     /**
      * set subprotocols on {@link cn.twelvet.websocket.netty.annotation.BeforeHandshake}
-     * @param subprotocols
+     *
+     * @param subprotocols String
      */
     public void setSubprotocols(String subprotocols) {
-        setAttribute("subprotocols",subprotocols);
+        setAttribute("subprotocols", subprotocols);
     }
 
     public ChannelFuture sendText(String message) {
@@ -85,6 +86,8 @@ public class NettySession {
 
     /**
      * Returns the globally unique identifier of this {@link Channel}.
+     *
+     * @return ChannelId
      */
     public ChannelId id() {
         return channel.id();
@@ -92,6 +95,7 @@ public class NettySession {
 
     /**
      * Returns the configuration of this channel.
+     * @return ChannelConfig
      */
     public ChannelConfig config() {
         return channel.config();
@@ -99,6 +103,7 @@ public class NettySession {
 
     /**
      * Returns {@code true} if the {@link Channel} is open and may get active later
+     * @return boolean
      */
     public boolean isOpen() {
         return channel.isOpen();
@@ -106,6 +111,7 @@ public class NettySession {
 
     /**
      * Returns {@code true} if the {@link Channel} is registered with an {@link EventLoop}.
+     * @return boolean
      */
     public boolean isRegistered() {
         return channel.isRegistered();
@@ -113,6 +119,7 @@ public class NettySession {
 
     /**
      * Return {@code true} if the {@link Channel} is active and so connected.
+     * @return boolean
      */
     public boolean isActive() {
         return channel.isActive();
@@ -120,6 +127,7 @@ public class NettySession {
 
     /**
      * Return the {@link ChannelMetadata} of the {@link Channel} which describe the nature of the {@link Channel}.
+     * @return ChannelMetadata
      */
     public ChannelMetadata metadata() {
         return channel.metadata();
@@ -159,6 +167,7 @@ public class NettySession {
     /**
      * Returns the {@link ChannelFuture} which will be notified when this
      * channel is closed.  This method always returns the same future instance.
+     * @return SocketAddress
      */
     public ChannelFuture closeFuture() {
         return channel.closeFuture();
@@ -169,6 +178,7 @@ public class NettySession {
      * requested write operation immediately.  Any write requests made when
      * this method returns {@code false} are queued until the I/O thread is
      * ready to process the queued write requests.
+     * @return boolean
      */
     public boolean isWritable() {
         return channel.isWritable();
@@ -177,6 +187,7 @@ public class NettySession {
     /**
      * Get how many bytes can be written until {@link #isWritable()} returns {@code false}.
      * This quantity will always be non-negative. If {@link #isWritable()} is {@code false} then 0.
+     * @return long
      */
     public long bytesBeforeUnwritable() {
         return channel.bytesBeforeUnwritable();
@@ -185,6 +196,7 @@ public class NettySession {
     /**
      * Get how many bytes must be drained from underlying buffers until {@link #isWritable()} returns {@code true}.
      * This quantity will always be non-negative. If {@link #isWritable()} is {@code true} then 0.
+     * @return long
      */
     public long bytesBeforeWritable() {
         return channel.bytesBeforeWritable();
@@ -192,6 +204,7 @@ public class NettySession {
 
     /**
      * Returns an <em>internal-use-only</em> object that provides unsafe operations.
+     * @return Channel.Unsafe
      */
     public Channel.Unsafe unsafe() {
         return channel.unsafe();
@@ -199,6 +212,7 @@ public class NettySession {
 
     /**
      * Return the assigned {@link ChannelPipeline}.
+     * @return ChannelPipeline
      */
     public ChannelPipeline pipeline() {
         return channel.pipeline();
@@ -206,6 +220,7 @@ public class NettySession {
 
     /**
      * Return the assigned {@link ByteBufAllocator} which will be used to allocate {@link ByteBuf}s.
+     * @return ByteBufAllocator
      */
     public ByteBufAllocator alloc() {
         return channel.alloc();

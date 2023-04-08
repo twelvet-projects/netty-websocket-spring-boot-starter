@@ -33,8 +33,7 @@ import static io.netty.handler.codec.http.HttpVersion.HTTP_1_1;
 
 /**
  * @author twelvet
- * @WebSite www.twelvet.cn
- * @Description: Process request information
+ * Process request information
  */
 public class HttpServerHandler extends SimpleChannelInboundHandler<FullHttpRequest> {
 

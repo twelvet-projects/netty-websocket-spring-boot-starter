@@ -10,8 +10,7 @@ import java.lang.annotation.Target;
 
 /**
  * @author twelvet
- * @WebSite www.twelvet.cn
- * @Description: 开启WebSocket
+ * 开启WebSocket
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)

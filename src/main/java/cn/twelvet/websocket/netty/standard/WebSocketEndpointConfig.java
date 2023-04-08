@@ -8,8 +8,7 @@ import java.net.Socket;
 
 /**
  * @author twelvet
- * @WebSite www.twelvet.cn
- * @Description: WebSocket配置获取
+ * WebSocket配置获取
  */
 public class WebSocketEndpointConfig {
 

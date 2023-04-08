@@ -6,8 +6,7 @@ import io.netty.handler.codec.http.QueryStringDecoder;
 
 /**
  * @author twelvet
- * @WebSite www.twelvet.cn
- * @Description: Default path matcher
+ * Default path matcher
  */
 public class DefaultPathMatcher implements WsPathMatcher {
 

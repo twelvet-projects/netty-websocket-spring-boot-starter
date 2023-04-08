@@ -7,8 +7,7 @@ import java.lang.annotation.Target;
 
 /**
  * @author twelvet
- * @WebSite www.twelvet.cn
- * @Description: 当有WebSocket抛出异常时，对该方法进行回调 注入参数的类型:Session、Throwable
+ * 当有WebSocket抛出异常时，对该方法进行回调 注入参数的类型:Session、Throwable
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
