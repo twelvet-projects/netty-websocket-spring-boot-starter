@@ -8,7 +8,7 @@
     <artifactId>netty-websocket-spring-boot-starter</artifactId>
     <version>1.0.3</version>
 
-    <name>twelvet</name>
+    <name>netty-websocket-spring-boot-starter</name>
     <url>https://www.twelvet.cn</url>
     <description>High performance websocket based on netty</description>
 
