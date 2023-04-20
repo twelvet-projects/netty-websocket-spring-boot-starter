@@ -9,12 +9,12 @@
     <version>1.0.4</version>
 
     <name>netty-websocket-spring-boot-starter</name>
-    <url>https://www.twelvet.cn</url>
+    <url>https://twelvet.cn</url>
     <description>High performance websocket based on netty</description>
 
     <organization>
         <name>twelvet</name>
-        <url>https://www.twelvet.cn</url>
+        <url>https://twelvet.cn</url>
     </organization>
 
     <licenses>
