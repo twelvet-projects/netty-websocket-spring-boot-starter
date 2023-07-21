@@ -53,8 +53,8 @@
         <nexus-staging-maven-plugin.version>1.6.13</nexus-staging-maven-plugin.version>
         <maven-gpg-plugin.version>3.0.1</maven-gpg-plugin.version>
 
-        <spring-boot.version>2.7.11</spring-boot.version>
-        <netty.version>4.1.91.Final</netty.version>
+        <spring-boot.version>2.7.14</spring-boot.version>
+        <netty.version>4.1.95.Final</netty.version>
     </properties>
 
     <dependencies>
