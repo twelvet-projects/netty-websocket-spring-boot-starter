@@ -20,7 +20,7 @@
 <dependency>
     <groupId>cn.twelvet.websocket</groupId>
     <artifactId>netty-websocket-spring-boot-starter</artifactId>
-    <version>版本号</version>
+    <version>1.0.6</version>
 </dependency>
 ```
 
