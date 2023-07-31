@@ -45,28 +45,28 @@ public @interface WebSocketEndpoint {
      *
      * @return int
      */
-    int port() default 80;
+    String port() default "80";
 
     /**
      * bossEventLoopGroup的线程数
      *
      * @return int
      */
-    int bossLoopGroupThreads() default 1;
+    String bossLoopGroupThreads() default "1";
 
     /**
      * workerEventLoopGroup的线程数
      *
      * @return int
      */
-    int workerLoopGroupThreads() default 0;
+    String workerLoopGroupThreads() default "0";
 
     /**
      * 是否添加WebSocketServerCompressionHandler到pipeline
      *
      * @return boolean
      */
-    boolean useCompressionHandler() default false;
+    String useCompressionHandler() default "false";
 
     //------------------------- option -------------------------
 
@@ -75,14 +75,14 @@ public @interface WebSocketEndpoint {
      *
      * @return int
      */
-    int optionConnectTimeoutMillis() default 30000;
+    String optionConnectTimeoutMillis() default "30000";
 
     /**
      * 服务端接受连接的队列长度，如果队列已满，客户端连接将被拒绝
      *
      * @return int
      */
-    int optionSoBacklog() default 128;
+    String optionSoBacklog() default "128";
 
     //------------------------- childOption -------------------------
 
@@ -93,14 +93,14 @@ public @interface WebSocketEndpoint {
      *
      * @return int
      */
-    int childOptionWriteSpinCount() default 16;
+    String childOptionWriteSpinCount() default "16";
 
     /**
      * 写高水位标记，默认值64KB。如果Netty的写缓冲区中的字节超过该值，Channel的isWritable()返回False
      *
      * @return int
      */
-    int childOptionWriteBufferHighWaterMark() default 65536;
+    String childOptionWriteBufferHighWaterMark() default "65536";
 
     /**
      * 写低水位标记，默认值32KB。
@@ -110,7 +110,7 @@ public @interface WebSocketEndpoint {
      *
      * @return int
      */
-    int childOptionWriteBufferLowWaterMark() default 32768;
+    String childOptionWriteBufferLowWaterMark() default "32768";
 
     /**
      * TCP数据接收缓冲区大小。
@@ -119,7 +119,7 @@ public @interface WebSocketEndpoint {
      *
      * @return int
      */
-    int childOptionSoRcvbuf() default -1;
+    String childOptionSoRcvbuf() default "-1";
 
     /**
      * TCP数据发送缓冲区大小。
@@ -127,7 +127,7 @@ public @interface WebSocketEndpoint {
      *
      * @return int
      */
-    int childOptionSoSndbuf() default -1;
+    String childOptionSoSndbuf() default "-1";
 
     /**
      * 立即发送数据，默认值为Ture（Netty默认为True而操作系统默认为False）。
@@ -136,7 +136,7 @@ public @interface WebSocketEndpoint {
      *
      * @return boolean
      */
-    boolean childOptionTcpNodelay() default true;
+    String childOptionTcpNodelay() default "true";
 
     /**
      * 连接保活，默认值为False。
@@ -145,7 +145,7 @@ public @interface WebSocketEndpoint {
      *
      * @return boolean
      */
-    boolean childOptionSoKeepalive() default false;
+    String childOptionSoKeepalive() default "false";
 
     /**
      * 关闭Socket的延迟时间，默认值为-1，表示禁用该功能。
@@ -155,7 +155,7 @@ public @interface WebSocketEndpoint {
      *
      * @return int
      */
-    int childOptionSoLinger() default -1;
+    String childOptionSoLinger() default "-1";
 
     /**
      * 一个连接的远端关闭时本地端是否关闭，默认值为False。
@@ -163,7 +163,7 @@ public @interface WebSocketEndpoint {
      *
      * @return boolean
      */
-    boolean childOptionAllowHalfClosure() default false;
+    String childOptionAllowHalfClosure() default "false";
 
     //------------------------- idleEvent -------------------------
 
@@ -172,21 +172,21 @@ public @interface WebSocketEndpoint {
      *
      * @return int
      */
-    int readerIdleTimeSeconds() default 0;
+    String readerIdleTimeSeconds() default "0";
 
     /**
      * 与IdleStateHandler中的writerIdleTimeSeconds一致，并且当它不为0时，将在pipeline中添加IdleStateHandler
      *
      * @return int
      */
-    int writerIdleTimeSeconds() default 0;
+    String writerIdleTimeSeconds() default "0";
 
     /**
      * 与IdleStateHandler中的allIdleTimeSeconds一致，并且当它不为0时，将在pipeline中添加IdleStateHandler
      *
      * @return int
      */
-    int allIdleTimeSeconds() default 0;
+    String allIdleTimeSeconds() default "0";
 
     //------------------------- handshake -------------------------
 
@@ -195,7 +195,7 @@ public @interface WebSocketEndpoint {
      *
      * @return int
      */
-    int maxFramePayloadLength() default 65536;
+    String maxFramePayloadLength() default "65536";
 
     //------------------------- eventExecutorGroup -------------------------
 
@@ -204,14 +204,14 @@ public @interface WebSocketEndpoint {
      *
      * @return boolean
      */
-    boolean useEventExecutorGroup() default true;
+    String useEventExecutorGroup() default "true";
 
     /**
      * eventExecutorGroup的线程数
      *
      * @return int
      */
-    int eventExecutorGroupThreads() default 16;
+    String eventExecutorGroupThreads() default "16";
 
     //------------------------- ssl (refer to spring Ssl) -------------------------
 
