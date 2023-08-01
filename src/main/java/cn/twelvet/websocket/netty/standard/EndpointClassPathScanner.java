@@ -9,25 +9,24 @@ import org.springframework.core.type.filter.AnnotationTypeFilter;
 import java.util.Set;
 
 /**
- * @author twelvet
- * 根据路径扫描端点
+ * @author twelvet 根据路径扫描端点
  */
 public class EndpointClassPathScanner extends ClassPathBeanDefinitionScanner {
 
-    public EndpointClassPathScanner(BeanDefinitionRegistry registry, boolean useDefaultFilters) {
-        super(registry, useDefaultFilters);
-    }
+	public EndpointClassPathScanner(BeanDefinitionRegistry registry, boolean useDefaultFilters) {
+		super(registry, useDefaultFilters);
+	}
 
-    /**
-     * add scan endpoint
-     *
-     * @param basePackages package
-     * @return Set
-     */
-    @Override
-    protected Set<BeanDefinitionHolder> doScan(String... basePackages) {
-        // add scan
-        addIncludeFilter(new AnnotationTypeFilter(WebSocketEndpoint.class));
-        return super.doScan(basePackages);
-    }
+	/**
+	 * add scan endpoint
+	 * @param basePackages package
+	 * @return Set
+	 */
+	@Override
+	protected Set<BeanDefinitionHolder> doScan(String... basePackages) {
+		// add scan
+		addIncludeFilter(new AnnotationTypeFilter(WebSocketEndpoint.class));
+		return super.doScan(basePackages);
+	}
+
 }

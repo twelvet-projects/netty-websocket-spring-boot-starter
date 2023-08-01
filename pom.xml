@@ -52,6 +52,7 @@
         <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
         <nexus-staging-maven-plugin.version>1.6.13</nexus-staging-maven-plugin.version>
         <maven-gpg-plugin.version>3.0.1</maven-gpg-plugin.version>
+        <spring.checkstyle.plugin>0.0.39</spring.checkstyle.plugin>
 
         <spring-boot.version>2.7.14</spring-boot.version>
         <netty.version>4.1.95.Final</netty.version>
@@ -82,6 +83,12 @@
 
     <build>
         <plugins>
+            <!--代码格式插件，默认使用spring 规则-->
+            <plugin>
+                <groupId>io.spring.javaformat</groupId>
+                <artifactId>spring-javaformat-maven-plugin</artifactId>
+                <version>${spring.checkstyle.plugin}</version>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

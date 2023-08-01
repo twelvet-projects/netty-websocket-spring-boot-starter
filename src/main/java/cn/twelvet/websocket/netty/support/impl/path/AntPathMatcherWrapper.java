@@ -11,30 +11,30 @@ import java.util.Map;
 import static cn.twelvet.websocket.netty.domain.WebSocketEndpointServer.URI_TEMPLATE;
 
 /**
- * @author twelvet
- * Ant path matcher
+ * @author twelvet Ant path matcher
  */
 public class AntPathMatcherWrapper extends AntPathMatcher implements WsPathMatcher {
 
-    private final String pattern;
+	private final String pattern;
 
-    public AntPathMatcherWrapper(String pattern) {
-        this.pattern = pattern;
-    }
+	public AntPathMatcherWrapper(String pattern) {
+		this.pattern = pattern;
+	}
 
-    @Override
-    public String getPattern() {
-        return this.pattern;
-    }
+	@Override
+	public String getPattern() {
+		return this.pattern;
+	}
 
-    @Override
-    public boolean matchAndExtract(QueryStringDecoder decoder, Channel channel) {
-        Map<String, String> variables = new LinkedHashMap<>();
-        boolean result = doMatch(pattern, decoder.path(), true, variables);
-        if (result) {
-            channel.attr(URI_TEMPLATE).set(variables);
-            return true;
-        }
-        return false;
-    }
+	@Override
+	public boolean matchAndExtract(QueryStringDecoder decoder, Channel channel) {
+		Map<String, String> variables = new LinkedHashMap<>();
+		boolean result = doMatch(pattern, decoder.path(), true, variables);
+		if (result) {
+			channel.attr(URI_TEMPLATE).set(variables);
+			return true;
+		}
+		return false;
+	}
+
 }

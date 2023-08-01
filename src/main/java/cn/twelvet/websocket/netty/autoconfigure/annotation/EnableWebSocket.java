@@ -9,14 +9,13 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @author twelvet
- * 开启WebSocket
+ * @author twelvet 开启WebSocket
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 @Import(NettyWebSocketSelector.class)
 public @interface EnableWebSocket {
 
-    String[] scanBasePackages() default {};
+	String[] scanBasePackages() default {};
 
 }

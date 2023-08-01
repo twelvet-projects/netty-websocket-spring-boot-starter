@@ -4,12 +4,12 @@ import io.netty.channel.Channel;
 import io.netty.handler.codec.http.QueryStringDecoder;
 
 /**
- * @author twelvet
- * WebSocket path matcher
+ * @author twelvet WebSocket path matcher
  */
 public interface WsPathMatcher {
 
-    String getPattern();
+	String getPattern();
 
-    boolean matchAndExtract(QueryStringDecoder decoder, Channel channel);
+	boolean matchAndExtract(QueryStringDecoder decoder, Channel channel);
+
 }
