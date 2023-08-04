@@ -1,9 +1,6 @@
 name: publish maven package
 on:
   workflow_dispatch:
-  push:
-    tags:
-      - '*'
 
 jobs:
   oss-release-deploy:
