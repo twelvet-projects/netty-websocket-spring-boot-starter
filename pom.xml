@@ -26,10 +26,10 @@
     </licenses>
 
     <scm>
-        <connection>https://github.com/twelvet-s/netty-websocket-spring-boot-starter.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com:twelvet-s/netty-websocket-spring-boot-starter.git
+        <connection>https://github.com/twelvet-projects/netty-websocket-spring-boot-starter.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:twelvet-projects/netty-websocket-spring-boot-starter.git
         </developerConnection>
-        <url>https://github.com/twelvet-s/netty-websocket-spring-boot-starter</url>
+        <url>https://github.com/twelvet-projects/netty-websocket-spring-boot-starter</url>
     </scm>
 
     <developers>
