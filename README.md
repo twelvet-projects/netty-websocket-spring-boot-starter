@@ -3,6 +3,8 @@
 [![AUR](https://img.shields.io/github/license/twelvet-projects/twelvet)](https://github.com/twelvet-projects/netty-websocket-spring-boot-starter/blob/master/LICENSE)
 [![](https://img.shields.io/badge/Author-TwelveT-orange.svg)](https://twelvet.cn)
 [![](https://img.shields.io/badge/version-1.0.0-success)](https://github.com/twelvet-projects/netty-websocket-spring-boot-starter)
+[![GitHub stars](https://img.shields.io/github/stars/twelvet-projects/netty-websocket-spring-boot-starter.svg?style=social&label=Stars)](https://github.com/twelvet-projects/netty-websocket-spring-boot-starter/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/twelvet-projects/netty-websocket-spring-boot-starter.svg?style=social&label=Fork)](https://github.com/twelvet-projects/netty-websocket-spring-boot-starter/network/members)
 [![star](https://gitee.com/twelvet/netty-websocket-spring-boot-starter/badge/star.svg?theme=white)](https://gitee.com/twelvet/netty-websocket-spring-boot-starter/stargazers)
 [![fork](https://gitee.com/twelvet/netty-websocket-spring-boot-starter/badge/fork.svg?theme=white)](https://gitee.com/twelvet/netty-websocket-spring-boot-starter/members)
 
