@@ -20,7 +20,7 @@
 
 ```xml
 <dependency>
-    <groupId>cn.twelvet</groupId>
+    <groupId>cn.twelvet.websocket</groupId>
     <artifactId>netty-websocket-spring-boot-starter</artifactId>
     <version>${version}</version>
 </dependency>
