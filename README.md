@@ -20,9 +20,9 @@
 
 ```xml
 <dependency>
-    <groupId>cn.twelvet.websocket</groupId>
+    <groupId>cn.twelvet</groupId>
     <artifactId>netty-websocket-spring-boot-starter</artifactId>
-    <version>1.0.6</version>
+    <version>${version}</version>
 </dependency>
 ```
 
