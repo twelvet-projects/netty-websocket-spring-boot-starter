@@ -54,7 +54,7 @@
         <maven-gpg-plugin.version>3.0.1</maven-gpg-plugin.version>
         <spring.checkstyle.plugin>0.0.39</spring.checkstyle.plugin>
 
-        <spring-boot-dependencies.version>2.7.16</spring-boot-dependencies.version>
+        <spring-boot-dependencies.version>2.7.17</spring-boot-dependencies.version>
         <netty.version>4.1.97.Final</netty.version>
     </properties>
 
