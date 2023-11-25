@@ -29,7 +29,6 @@ Developing a WebSocket server using Netty in Spring Boot, with the simplicity an
 
 - Add the `@WebSocketEndpoint` annotation to the endpoint class, and add the `@BeforeHandshake`、`@OnOpen`、`@OnClose`、`@OnError`、`@OnMessage`、`@OnBinary` and `@OnEvent` annotations to the respective methods. Here's an example:
 - Use `@PathVariable` to retrieve path parameters and `@RequestParam` to retrieve query parameters, both of which have the same effect as the corresponding Spring annotations (Note: Use the annotations provided by this framework, not Spring's annotations).
-- You can obtain the addresses of all endpoints through `WebSocketEndpointExporter.getAddressWebsocketServerMap()`, which can be used for registering or other processing in a distributed cluster.
 
 ```java
 
@@ -107,6 +106,14 @@ public class MyWebSocket {
 ```
 
 - Open the WebSocket client and connect to `ws://127.0.0.1:80/ws/xxx`
+
+### Multi Endpoint
+- base on [Quick-Start](#quick-start),use annotation `@WebSocketEndpoint` in classes which hope to become a endpoint.
+- you can get all socket addresses in `WebSocketEndpointExporter.getAddressWebsocketServerMap()`.
+- when there are different addresses(different host or different port) in WebSocket,they will use different `ServerBootstrap` instance.
+- when the addresses are the same,but path is different,they will use the same `ServerBootstrap` instance.
+- when multiple port of endpoint is 0 ,they will use the same random port
+- when multiple port of endpoint is the same as the path,host can't be set as "0.0.0.0",because it means it binds all of the addresses
 
 ### Configure using application.properties.
 

@@ -29,7 +29,6 @@
 
 - 在端点类上加上`@WebSocketEndpoint`注解，并在相应的方法上加上`@BeforeHandshake`、`@OnOpen`、`@OnClose`、`@OnError`、`@OnMessage`、`@OnBinary`、`@OnEvent`注解，样例如下：
 - @PathVariable获取路径参数 @RequestParam获取query参数，二者皆与Spring的注解效果相同（注意：引入本框架实现的注解，不是Spring的）
-- 可通过`WebSocketEndpointExporter.getAddressWebsocketServerMap()`获取所有端点的地址，可实现分布式集群的注册或其他处理
 
 ```java
 
@@ -107,6 +106,14 @@ public class MyWebSocket {
 ```
 
 - 打开WebSocket客户端，连接到`ws://127.0.0.1:80/ws/xxx`
+
+### 多端点服务
+- 在[快速启动](#快速开始)的基础上，在多个需要成为端点的类上使用`@WebSocketEndpoint`注解即可
+- 可通过`WebSocketEndpointExporter.getAddressWebsocketServerMap()`获取所有端点的地址
+- 当地址不同时(即host不同或port不同)，使用不同的`ServerBootstrap`实例
+- 当地址相同,路径(path)不同时,使用同一个`ServerBootstrap`实例
+- 当多个端点服务的port为0时，将使用同一个随机的端口号
+- 当多个端点的port和path相同时，host不能设为`"0.0.0.0"`，因为`"0.0.0.0"`意味着绑定所有的host
 
 ### 通过application.properties进行配置
 > 所有参数皆可使用`${...}`占位符获取`application.yml`中的配置。如下：
