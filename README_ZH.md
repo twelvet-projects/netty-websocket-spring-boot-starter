@@ -29,6 +29,7 @@
 
 - 在端点类上加上`@WebSocketEndpoint`注解，并在相应的方法上加上`@BeforeHandshake`、`@OnOpen`、`@OnClose`、`@OnError`、`@OnMessage`、`@OnBinary`、`@OnEvent`注解，样例如下：
 - @PathVariable获取路径参数 @RequestParam获取query参数，二者皆与Spring的注解效果相同（注意：引入本框架实现的注解，不是Spring的）
+- 可通过`WebSocketEndpointExporter.getAddressWebsocketServerMap()`获取所有端点的地址，可实现分布式集群的注册或其他处理
 
 ```java
 

@@ -49,7 +49,11 @@ public class WebSocketEndpointExporter extends ApplicationObjectSupport
 	/**
 	 * 服务Map
 	 */
-	private final Map<InetSocketAddress, WebsocketServer> addressWebsocketServerMap = new HashMap<>();
+	private static final Map<InetSocketAddress, WebsocketServer> addressWebsocketServerMap = new HashMap<>();
+
+	public static Map<InetSocketAddress, WebsocketServer> getAddressWebsocketServerMap() {
+		return addressWebsocketServerMap;
+	}
 
 	@Override
 	public void setBeanFactory(BeanFactory beanFactory) {

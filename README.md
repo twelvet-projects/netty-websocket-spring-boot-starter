@@ -29,7 +29,7 @@ Developing a WebSocket server using Netty in Spring Boot, with the simplicity an
 
 - Add the `@WebSocketEndpoint` annotation to the endpoint class, and add the `@BeforeHandshake`、`@OnOpen`、`@OnClose`、`@OnError`、`@OnMessage`、`@OnBinary` and `@OnEvent` annotations to the respective methods. Here's an example:
 - Use `@PathVariable` to retrieve path parameters and `@RequestParam` to retrieve query parameters, both of which have the same effect as the corresponding Spring annotations (Note: Use the annotations provided by this framework, not Spring's annotations).
-
+- You can obtain the addresses of all endpoints through `WebSocketEndpointExporter.getAddressWebsocketServerMap()`, which can be used for registering or other processing in a distributed cluster.
 
 ```java
 
