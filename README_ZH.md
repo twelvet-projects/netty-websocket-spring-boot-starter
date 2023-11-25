@@ -9,15 +9,15 @@
 [![star](https://gitee.com/twelvet/netty-websocket-spring-boot-starter/badge/star.svg?theme=white)](https://gitee.com/twelvet/netty-websocket-spring-boot-starter/stargazers)
 [![fork](https://gitee.com/twelvet/netty-websocket-spring-boot-starter/badge/fork.svg?theme=white)](https://gitee.com/twelvet/netty-websocket-spring-boot-starter/members)
 
-### Introduction
-Developing a WebSocket server using Netty in Spring Boot, with the simplicity and high performance of spring-websocket annotations.
+### 简介
+在Spring Boot中使用Netty来开发WebSocket服务器，并像spring-websocket注解一样简单且高性能
 
-### Requirements
-- jdk >= 1.8 (compatible with jdk 17、21)
+### 要求
+- jdk >= 1.8 (兼容jdk 17、21)
 
-### Quick Start
+### 快速开始
 
-- Add dependencies:
+- 添加依赖:
 
 ```xml
 <dependency>
@@ -27,9 +27,8 @@ Developing a WebSocket server using Netty in Spring Boot, with the simplicity an
 </dependency>
 ```
 
-- Add the `@WebSocketEndpoint` annotation to the endpoint class, and add the `@BeforeHandshake`、`@OnOpen`、`@OnClose`、`@OnError`、`@OnMessage`、`@OnBinary` and `@OnEvent` annotations to the respective methods. Here's an example:
-- Use `@PathVariable` to retrieve path parameters and `@RequestParam` to retrieve query parameters, both of which have the same effect as the corresponding Spring annotations (Note: Use the annotations provided by this framework, not Spring's annotations).
-
+- 在端点类上加上`@WebSocketEndpoint`注解，并在相应的方法上加上`@BeforeHandshake`、`@OnOpen`、`@OnClose`、`@OnError`、`@OnMessage`、`@OnBinary`、`@OnEvent`注解，样例如下：
+- @PathVariable获取路径参数 @RequestParam获取query参数，二者皆与Spring的注解效果相同（注意：引入本框架实现的注解，不是Spring的）
 
 ```java
 
@@ -106,20 +105,19 @@ public class MyWebSocket {
 }
 ```
 
-- Open the WebSocket client and connect to `ws://127.0.0.1:80/ws/xxx`
+- 打开WebSocket客户端，连接到`ws://127.0.0.1:80/ws/xxx`
 
-### Configure using application.properties.
+### 通过application.properties进行配置
+> 所有参数皆可使用`${...}`占位符获取`application.yml`中的配置。如下：
 
-> All parameters can be obtained from the configuration in `application.yml` using `${...}` placeholders. Here's an example:：
-
-- First, use `${...}` placeholders in the attributes of the `@WebSocketEndpoint` annotation.
+- 首先在`@WebSocketEndpoint`注解的属性中使用`${...}`占位符
 ```java
 @WebSocketEndpoint(host = "${ws.host}", port = "${ws.port}")
 public class MyWebSocket {
     ...
 }
 ```
-- Next, you can configure it in the `application.yml` file.
+- 接下来即可在`application.yml`中配置
 ```
 ws:
   host: 0.0.0.0
