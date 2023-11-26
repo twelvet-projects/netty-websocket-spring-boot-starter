@@ -1,6 +1,10 @@
 [中文](https://github.com/twelvet-projects/netty-websocket-spring-boot-starter/blob/master/README_ZH.md) | [English](https://github.com/twelvet-projects/netty-websocket-spring-boot-starter/blob/master/README.md)
 # netty-websocket-spring-boot-starter
 
+是对原有 [netty-websocket-spring-boot-starter](https://github.com/YeautyYE/netty-websocket-spring-boot-starter) 代码重构和功能增强。
+
+非常感谢 `netty-websocket-spring-boot-starter` 作者的分享。
+
 [![AUR](https://img.shields.io/github/license/twelvet-projects/twelvet)](https://github.com/twelvet-projects/netty-websocket-spring-boot-starter/blob/master/LICENSE)
 [![](https://img.shields.io/badge/Author-TwelveT-orange.svg)](https://twelvet.cn)
 [![](https://img.shields.io/badge/version-1.0.0-success)](https://github.com/twelvet-projects/netty-websocket-spring-boot-starter)
