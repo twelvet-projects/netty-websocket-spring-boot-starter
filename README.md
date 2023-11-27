@@ -2,6 +2,7 @@
 # netty-websocket-spring-boot-starter
 
 It is a code refactoring and feature enhancement for the original [netty-websocket-spring-boot-starter](https://github.com/YeautyYE/netty-websocket-spring-boot-starter).
+
 Thank you very much for the author's sharing of `netty-websocket-spring-boot-starter`.
 
 [![AUR](https://img.shields.io/github/license/twelvet-projects/twelvet)](https://github.com/twelvet-projects/netty-websocket-spring-boot-starter/blob/master/LICENSE)
